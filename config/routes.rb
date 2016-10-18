@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'menu/index'
+
   get 'login/index'
 
   post 'login/auth'
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :families
   resources :loginusers
+
+  root to: 'menu#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
