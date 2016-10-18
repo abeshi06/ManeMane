@@ -1,0 +1,26 @@
+<h1>Editing Money</h1>
+
+<%= form_for(@money, url: updatecategory_money_path(@money),html: {method: "patch"}) do |f| %>
+  <% if @money.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@money.errors.count, "error") %> prohibited this money from being saved:</h2>
+
+      <ul>
+      <% @money.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.where(loginuser: session[:usr]), :id, :categoryname %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @money %> |
+<%= link_to 'Back', money_index_path %>

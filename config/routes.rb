@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   post 'login/auth'
 
-  resources :money
+  resources :money do
+    get 'editcategory', on: :member
+    patch 'updatecategory', on: :member
+  end
   resources :goals
   resources :categories
   resources :families

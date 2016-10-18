@@ -1,5 +1,5 @@
 class MoneyController < ApplicationController
-  before_action :set_money, only: [:show, :edit, :update, :destroy]
+  before_action :set_money, only: [:show, :edit, :editcategory, :update, :updatecategory,:destroy]
 
   # GET /money
   # GET /money.json
@@ -17,6 +17,9 @@ class MoneyController < ApplicationController
     @money = Money.new
   end
 
+  def editcategory
+  end
+
   # GET /money/1/edit
   def edit
   end
@@ -29,7 +32,7 @@ class MoneyController < ApplicationController
 
     respond_to do |format|
       if @money.save
-        format.html { redirect_to @money, notice: 'Money was successfully created.' }
+        format.html { redirect_to editcategory_money_path(@money), notice: 'Money was successfully created.' }
         format.json { render :show, status: :created, location: @money }
       else
         format.html { render :new }
@@ -41,6 +44,20 @@ class MoneyController < ApplicationController
   # PATCH/PUT /money/1
   # PATCH/PUT /money/1.json
   def update
+    respond_to do |format|
+      if @money.update(money_params)
+        format.html { redirect_to editcategory_money_path(@money), notice: 'Money was successfully updated.' }
+        format.json { render :show, status: :ok, location: @money }
+      else
+        format.html { render :edit }
+        format.json { render json: @money.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /money/1
+  # PATCH/PUT /money/1.json
+  def updatecategory
     respond_to do |format|
       if @money.update(money_params)
         format.html { redirect_to @money, notice: 'Money was successfully updated.' }
