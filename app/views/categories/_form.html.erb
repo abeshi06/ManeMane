@@ -12,16 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :loginuser_id %><br>
-    <%= f.text_field :loginuser_id %>
-  </div>
-  <div class="field">
     <%= f.label :categoryname %><br>
     <%= f.text_field :categoryname %>
   </div>
   <div class="field">
     <%= f.label :kbn %><br>
-    <%= f.text_field :kbn %>
+    <%= f.select :kbn, ["収入","支出"] %>
   </div>
   <div class="actions">
     <%= f.submit %>
