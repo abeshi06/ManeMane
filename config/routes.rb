@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'login/index'
+
+  post 'login/auth'
+
   resources :money
   resources :goals
   resources :categories
