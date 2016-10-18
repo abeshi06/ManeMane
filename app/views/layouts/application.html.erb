@@ -8,7 +8,14 @@
   <%= javascript_include_tag "https://www.google.com/jsapi" %>
 </head>
 <body>
-
+<header>
+	<% if session[:usr] %>
+	  <div align="right"><%= session[:usr] %>さん　<%= link_to 'ログアウト', login_index_path %></div>
+	  <div><%= link_to 'HOME', root_path %></div>
+	<% else %>
+	  <%= link_to 'ログイン画面', login_index_path %>
+	<% end %>
+</header>
 <%= yield %>
 
 </body>
