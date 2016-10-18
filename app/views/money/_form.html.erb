@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :family_id %><br>
-    <%= f.collection_select :family_id, Family.where(session[:usr]), :id, :familyname %>
+    <%= f.collection_select :family_id, Family.where(loginuser: session[:usr]), :id, :familyname %>
   </div>
   <div class="actions">
     <%= f.submit %>

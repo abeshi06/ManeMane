@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'statistics/circle_graph'
+
   get 'menu/index'
 
   get 'login/index'
