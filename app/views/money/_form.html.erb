@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :kbn %><br>
+    <%= f.select :kbn, ["収入","支出"] %>
+  </div>
+  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
@@ -20,16 +24,8 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :loginuser_id %><br>
-    <%= f.text_field :loginuser_id %>
-  </div>
-  <div class="field">
     <%= f.label :family_id %><br>
-    <%= f.text_field :family_id %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= f.collection_select :family_id, Family.where(session[:usr]), :id, :familyname %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -4,7 +4,7 @@ class MoneyController < ApplicationController
   # GET /money
   # GET /money.json
   def index
-    @money = Money.all
+    @money = Money.where(loginuser: session[:usr])
   end
 
   # GET /money/1
@@ -25,6 +25,7 @@ class MoneyController < ApplicationController
   # POST /money.json
   def create
     @money = Money.new(money_params)
+    @money.loginuser_id = session[:usr]
 
     respond_to do |format|
       if @money.save
@@ -69,6 +70,6 @@ class MoneyController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def money_params
-      params.require(:money).permit(:price, :date, :loginuser_id, :family_id, :category_id)
+      params.require(:money).permit(:price, :date, :loginuser_id, :family_id, :category_id, :kbn)
     end
 end

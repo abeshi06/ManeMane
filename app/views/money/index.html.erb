@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>Kbn</th>
       <th>Price</th>
       <th>Date</th>
-      <th>Loginuser</th>
       <th>Family</th>
       <th>Category</th>
       <th colspan="3"></th>
@@ -17,9 +17,9 @@
   <tbody>
     <% @money.each do |money| %>
       <tr>
+        <td><%= money.kbn %></td>
         <td><%= money.price %></td>
         <td><%= money.date %></td>
-        <td><%= money.loginuser_id %></td>
         <td><%= money.family_id %></td>
         <td><%= money.category_id %></td>
         <td><%= link_to 'Show', money %></td>
