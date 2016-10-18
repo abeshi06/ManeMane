@@ -4,7 +4,7 @@ class FamiliesController < ApplicationController
   # GET /families
   # GET /families.json
   def index
-    @families = Family.all
+    @families = Family.where(loginuser: session[:usr])
   end
 
   # GET /families/1
@@ -25,6 +25,7 @@ class FamiliesController < ApplicationController
   # POST /families.json
   def create
     @family = Family.new(family_params)
+    @family.loginuser_id = session[:usr]
 
     respond_to do |format|
       if @family.save
