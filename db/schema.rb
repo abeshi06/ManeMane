@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018070536) do
+ActiveRecord::Schema.define(version: 20161019000753) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "loginuser_id"
+    t.integer  "loginuser_id"
     t.string   "categoryname"
     t.string   "kbn"
     t.datetime "created_at",   null: false
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 20161018070536) do
   end
 
   create_table "families", force: :cascade do |t|
-    t.string   "loginuser_id"
+    t.integer  "loginuser_id"
     t.string   "familyname"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "goals", force: :cascade do |t|
-    t.string   "loginuser_id"
+    t.integer  "loginuser_id"
     t.integer  "price"
     t.date     "date"
     t.datetime "created_at",   null: false
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20161018070536) do
   create_table "money", force: :cascade do |t|
     t.integer  "price"
     t.date     "date"
-    t.string   "loginuser_id"
-    t.string   "family_id"
-    t.string   "category_id"
+    t.integer  "loginuser_id"
+    t.integer  "family_id"
+    t.integer  "category_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "kbn"
