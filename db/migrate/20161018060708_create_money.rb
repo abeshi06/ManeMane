@@ -3,9 +3,10 @@ class CreateMoney < ActiveRecord::Migration
     create_table :money do |t|
       t.integer :price
       t.date :date
-      t.string :loginuser_id
-      t.string :family_id
-      t.string :category_id
+      t.integer :loginuser_id
+      t.integer :family_id
+      t.integer :category_id
+      t.string :kbn
 
       t.timestamps null: false
     end

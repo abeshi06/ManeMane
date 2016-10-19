@@ -1,7 +1,7 @@
 class CreateGoals < ActiveRecord::Migration
   def change
     create_table :goals do |t|
-      t.string :loginuser_id
+      t.integer :loginuser_id
       t.integer :price
       t.date :date
 
